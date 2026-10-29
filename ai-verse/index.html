@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f5f6fb">
+    <meta name="description" content="Atur tugas harianmu dengan lebih mudah dan tetap fokus.">
+    <title>Rencana Hari Ini — To-do List</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main class="app">
+        <header class="page-header">
+            <a class="brand" href="#" aria-label="Rencana Hari Ini">
+                <span class="brand-icon" aria-hidden="true">✓</span>
+                <span>ruang<span class="brand-accent">rencana</span></span>
+            </a>
+            <span class="header-note">Sedikit demi sedikit, jadi banyak.</span>
+        </header>
+
+        <section class="welcome" aria-labelledby="page-title">
+            <p class="eyebrow" id="current-date"></p>
+            <h1 id="page-title">Hari ini mau <span>ngapain?</span></h1>
+            <p class="welcome-copy">Tulis rencanamu, selesaikan satu per satu. Kamu pasti bisa!</p>
+        </section>
+
+        <section class="dashboard" aria-label="Ringkasan tugas">
+            <div class="summary-card">
+                <span class="summary-icon summary-icon-purple" aria-hidden="true">✦</span>
+                <div>
+                    <p class="summary-label">Total tugas</p>
+                    <p class="summary-value" id="total-count">0</p>
+                </div>
+            </div>
+            <div class="summary-card">
+                <span class="summary-icon summary-icon-green" aria-hidden="true">✓</span>
+                <div>
+                    <p class="summary-label">Selesai</p>
+                    <p class="summary-value" id="completed-count">0</p>
+                </div>
+            </div>
+            <div class="summary-card progress-card">
+                <div class="progress-copy">
+                    <div>
+                        <p class="summary-label">Progres hari ini</p>
+                        <p class="progress-message" id="progress-message">Mulai dari satu langkah kecil.</p>
+                    </div>
+                    <span class="progress-percent" id="progress-percent">0%</span>
+                </div>
+                <div
+                    class="progress-track"
+                    id="progress-track"
+                    role="progressbar"
+                    aria-label="Progres tugas selesai"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                >
+                    <span class="progress-fill" id="progress-fill"></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="task-panel" aria-labelledby="tasks-heading">
+            <div class="panel-heading">
+                <div>
+                    <p class="eyebrow">Daftar kegiatan</p>
+                    <h2 id="tasks-heading">Rencana hari ini</h2>
+                </div>
+                <button class="clear-button" id="clear-completed" type="button" hidden>
+                    Hapus yang selesai
+                </button>
+            </div>
+
+            <form class="task-form" id="task-form">
+                <label class="sr-only" for="task-input">Tulis tugas baru</label>
+                <span class="input-icon" aria-hidden="true">＋</span>
+                <input
+                    id="task-input"
+                    name="task"
+                    type="text"
+                    placeholder="Contoh: belajar JavaScript 30 menit"
+                    maxlength="120"
+                    autocomplete="off"
+                    required
+                >
+                <button class="add-button" type="submit">
+                    <span aria-hidden="true">＋</span>
+                    <span>Tambah</span>
+                </button>
+            </form>
+
+            <div class="list-toolbar">
+                <div class="filter-tabs" role="group" aria-label="Filter tugas">
+                    <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">Semua</button>
+                    <button class="filter-button" type="button" data-filter="active" aria-pressed="false">Belum selesai</button>
+                    <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">Selesai</button>
+                </div>
+                <span class="task-count" id="task-count">0 tugas</span>
+            </div>
+
+            <ul class="task-list" id="task-list" aria-live="polite" aria-relevant="additions removals text"></ul>
+            <p class="status-message" id="status-message" role="status" aria-live="polite"></p>
+        </section>
+
+        <footer class="page-footer">
+            <span>Dibuat untuk hari yang lebih teratur</span>
+            <span class="footer-heart" aria-hidden="true">♥</span>
+        </footer>
+    </main>
+</body>
+</html>
